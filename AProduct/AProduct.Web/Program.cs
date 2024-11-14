@@ -22,8 +22,21 @@ builder.Services.AddControllers();
 
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
-builder.Services.AddDbContext<AppDbContext>(opt => 
+bool inMemory = false;
+
+if (inMemory)
+{
+    Console.WriteLine("Mock data");
+    
+    builder.Services.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase("InMemoryDatabase"));
+}
+else
+{
+    Console.WriteLine("SQL Database");
+    
+    builder.Services.AddDbContext<AppDbContext>(opt => 
     opt.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+}
 
 var app = builder.Build();
 
