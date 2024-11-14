@@ -1,13 +1,15 @@
 using AProduct.Web.Dtos;
 using AProduct.Web.Entities;
 using AProduct.Web.Interfaces;
+using Asp.Versioning;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AProduct.Web.Controllers;
 
 [ApiController]
-[Route("api/[controller]")]
+[ApiVersion("1")]
+[Route("api/v{version:apiVersion}/[controller]")]
 public class ProductController : ControllerBase
 {
     private readonly IProductRepository _productRepository;
