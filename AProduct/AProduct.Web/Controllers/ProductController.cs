@@ -18,7 +18,7 @@ public class ProductController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<List<ProductReadDto>>> GetAllProducts()
     {
-        var products = await _productRepository.GetProducts();
+        var products = _productRepository.GetProducts();
 
         if (products != null)
         {

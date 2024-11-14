@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
 
 namespace AProduct.Web.Entities;
 
@@ -12,6 +13,7 @@ public class Product
     [Required]
     public string ImgUri { get; set; }
     [Required]
+    [Precision(18, 2)]
     public decimal Price { get; set; }
     public string? Description { get; set; }
 }

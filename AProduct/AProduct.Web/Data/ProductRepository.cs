@@ -5,9 +5,15 @@ namespace AProduct.Web.Data;
 
 public class ProductRepository : IProductRepository
 {
-    public Task<List<Product>> GetProducts()
+    private readonly AppDbContext _context;
+
+    public ProductRepository(AppDbContext context)
     {
-        throw new NotImplementedException();
+        _context = context;
+    }
+    public IEnumerable<Product> GetProducts()
+    {
+        return _context.Products.AsEnumerable();
     }
 
     public Task<Product> GetProductById(int id)
