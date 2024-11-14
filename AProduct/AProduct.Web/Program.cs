@@ -11,6 +11,8 @@ builder.Services.AddSwaggerGen(c =>
     c.SwaggerDoc("v1", new OpenApiInfo{ Title = "Product", Version = "v1" });
 });
 
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 var configuration = new ConfigurationBuilder()
     .SetBasePath(Directory.GetCurrentDirectory())
     .AddJsonFile("appsettings.Development.json")
@@ -32,6 +34,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.MapControllers();
+
+DbInitialization.PrepDb(app);
 
 app.UseHttpsRedirection();
 

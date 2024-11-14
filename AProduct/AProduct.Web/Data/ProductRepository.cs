@@ -1,5 +1,6 @@
 using AProduct.Web.Entities;
 using AProduct.Web.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace AProduct.Web.Data;
 
@@ -11,23 +12,43 @@ public class ProductRepository : IProductRepository
     {
         _context = context;
     }
-    public IEnumerable<Product> GetProducts()
+    public async Task<List<Product>> GetProducts()
     {
-        return _context.Products.AsEnumerable();
+        return await _context.Products.ToListAsync();
     }
 
-    public Task<Product> GetProductById(int id)
+    public async Task<Product> GetProductById(int id)
     {
-        throw new NotImplementedException();
+        return await _context.Products.FirstOrDefaultAsync(p => p.Id == id);
     }
 
-    public Task<Product> UpdateProduct(Product product, string description)
+    public async Task<Product> UpdateProduct(Product product, string description)
     {
-        throw new NotImplementedException();
+        if (product == null)
+        {
+            throw new ArgumentNullException(nameof(product));
+        }
+        
+        product.Description = description;
+        
+        var result = _context.Products.Update(product);  
+
+        await _context.SaveChangesAsync();
+
+        return result.Entity;
     }
 
-    public Task<Product> CreateProduct(Product product)
+    public async Task<Product> CreateProduct(Product product)
     {
-        throw new NotImplementedException();
+        if (product == null)
+        {
+            throw new ArgumentNullException(nameof(product));
+        }
+        
+        var result = await _context.Products.AddAsync(product);
+        
+        await _context.SaveChangesAsync();
+        
+        return result.Entity;
     }
 }
