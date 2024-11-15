@@ -8,9 +8,14 @@ A simple Web API application for managing a product repository. This API provide
 - (Optional) **Database** - Use MS-SQL if you plan to persist data in a database. You can use in memory database as well. 
 
 ### Running the Application 
-1. Navigate to the AProduct/AProduct.Web folder.
-2. Use `dotnet run` command to start the application.
+1. Navigate to the project folder
+    `cd AProduct/AProduct.Web`
+3. Use `dotnet run` command to start the application.
 
 ### Running the Application with SQL databse
 1. Put you connection string to appsettings.Development.json
 2. Run application using `dotnet run -sql` command.
+
+### Running Tests - In Progress
+Navigate to folder `cd AProduct`
+Run Tests`dotnet test`
