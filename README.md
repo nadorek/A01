@@ -17,5 +17,5 @@ A simple Web API application for managing a product repository. This API provide
 2. Run application using `dotnet run -sql` command.
 
 ### Running Tests - In Progress
-Navigate to folder `cd AProduct`
-Run Tests`dotnet test`
+1. Navigate to folder `cd AProduct`
+2. Run Tests`dotnet test`
