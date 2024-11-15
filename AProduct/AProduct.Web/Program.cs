@@ -3,17 +3,18 @@ using AProduct.Web.Interfaces;
 using Asp.Versioning;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo{ Title = "Product", Version = "v1" });
+    c.SwaggerDoc("v1", new OpenApiInfo{ Title = "Product - v1", Version = "v1" });
+    c.SwaggerDoc("v2", new OpenApiInfo{ Title = "Product - v2", Version = "v2" });
 });
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
 
 builder.Services.AddApiVersioning(o =>
 {
@@ -31,6 +32,8 @@ builder.Services.AddApiVersioning(o =>
         
 });
 
+
+
 var configuration = new ConfigurationBuilder()
     .SetBasePath(Directory.GetCurrentDirectory())
     .AddJsonFile("appsettings.Development.json")
@@ -39,8 +42,17 @@ var configuration = new ConfigurationBuilder()
 builder.Services.AddControllers();
 
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IProductRepositoryV2, ProductRepositoryV2>();
 
-bool inMemory = false;
+
+bool inMemory = true;
+foreach (var arg in args)
+{
+    if (arg == "--sql")
+    {
+        inMemory = false;
+    }
+}
 
 if (inMemory)
 {

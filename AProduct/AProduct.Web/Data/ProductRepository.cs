@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AProduct.Web.Data;
 
-public class ProductRepository : IProductRepository
+public class ProductRepository : IProductRepository, IProductRepositoryV2
 {
     private readonly AppDbContext _context;
 
@@ -51,12 +51,9 @@ public class ProductRepository : IProductRepository
         
         return result.Entity;
     }
-    
-    public async Task<List<Product>> GetProductsPage(int pageSize, int pageNumber)
+
+    public Task<List<Product>> GetProductsPage(int pageSize, int pageNumber)
     {
-        return await _context.Products
-            .Skip((pageNumber - 1) * pageSize)
-            .Take(pageSize)
-            .ToListAsync();
+        throw new NotImplementedException();
     }
 }
