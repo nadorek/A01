@@ -4622,11 +4622,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/reznictvi/repos/Alza/02/A01/AProduct/AProduct.Web/AProduct.Web.csproj",
+      "projectUniqueName": "/Users/reznictvi/repos/Alza/03/A01/AProduct/AProduct.Web/AProduct.Web.csproj",
       "projectName": "AProduct.Web",
-      "projectPath": "/Users/reznictvi/repos/Alza/02/A01/AProduct/AProduct.Web/AProduct.Web.csproj",
+      "projectPath": "/Users/reznictvi/repos/Alza/03/A01/AProduct/AProduct.Web/AProduct.Web.csproj",
       "packagesPath": "/Users/reznictvi/.nuget/packages/",
-      "outputPath": "/Users/reznictvi/repos/Alza/02/A01/AProduct/AProduct.Web/obj/",
+      "outputPath": "/Users/reznictvi/repos/Alza/03/A01/AProduct/AProduct.Web/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/reznictvi/.nuget/NuGet/NuGet.Config"

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YTdIZ9m0mvQ=",
+  "dgSpecHash": "ZAWtXtPxINU=",
   "success": true,
-  "projectFilePath": "/Users/reznictvi/repos/Alza/02/A01/AProduct/AProduct.Web/AProduct.Web.csproj",
+  "projectFilePath": "/Users/reznictvi/repos/Alza/03/A01/AProduct/AProduct.Web/AProduct.Web.csproj",
   "expectedPackageFiles": [
     "/Users/reznictvi/.nuget/packages/asp.versioning.abstractions/8.1.0/asp.versioning.abstractions.8.1.0.nupkg.sha512",
     "/Users/reznictvi/.nuget/packages/asp.versioning.http/8.1.0/asp.versioning.http.8.1.0.nupkg.sha512",
