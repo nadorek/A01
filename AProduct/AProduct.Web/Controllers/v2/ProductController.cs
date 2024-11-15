@@ -22,9 +22,9 @@ public class ProductController : ControllerBase
     
     [MapToApiVersion("2")]
     [HttpGet]
-    public async Task<ActionResult<List<ProductReadDto>>> GetAllProductsV2([FromQuery] int pageSize, int pageNumber)
+    public async Task<ActionResult<List<ProductReadDto>>> GetAllProductsV2([FromQuery] ProductPageDto query)
     {
-        var products = await _productRepositoryV2.GetProductsPage(pageSize, pageNumber);
+        var products = await _productRepositoryV2.GetProductsPage(query.pageSize, query.pageNumber);
 
         if (products != null)
         {

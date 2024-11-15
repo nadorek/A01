@@ -15,9 +15,11 @@ public class ProductRepositoryV2 : IProductRepositoryV2
     
     public async Task<List<Product>> GetProductsPage(int pageSize, int pageNumber)
     {
-        return await _context.Products
+        var x = await _context.Products
             .Skip((pageNumber - 1) * pageSize)
             .Take(pageSize)
             .ToListAsync();
+
+        return x;
     }
 }

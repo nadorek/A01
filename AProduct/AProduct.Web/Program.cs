@@ -3,7 +3,6 @@ using AProduct.Web.Interfaces;
 using Asp.Versioning;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,8 +31,6 @@ builder.Services.AddApiVersioning(o =>
         
 });
 
-
-
 var configuration = new ConfigurationBuilder()
     .SetBasePath(Directory.GetCurrentDirectory())
     .AddJsonFile("appsettings.Development.json")
@@ -48,7 +45,7 @@ builder.Services.AddScoped<IProductRepositoryV2, ProductRepositoryV2>();
 bool inMemory = true;
 foreach (var arg in args)
 {
-    if (arg == "--sql")
+    if (arg == "-sql")
     {
         inMemory = false;
     }
